@@ -70,7 +70,7 @@ total = price * int(quantity)
 
 print("Thank you. Your total is: $" + str(total))
 
-print("Sounds good " + name + ", we'll have that out for you in just one moment")
+print("Sounds good " + name + ", we'll have that out for you in just one moment\n\n\n\n")
 
 #Keeps program open so you can see the last line 
 end = input("Press any KEY to end")
