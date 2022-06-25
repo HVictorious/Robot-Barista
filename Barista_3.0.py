@@ -56,21 +56,33 @@ while True:
         continue
 
 if size == "Small":  
-    price = price_coffee * int(1)
+    price = price_coffee + int(1)
 elif size == "Medium":
-    price = price_coffee * int(2)
+    price = price_coffee + int(2)
 elif size == "Large": 
-    price = price_coffee * int(3)
+    price = price_coffee + int(3)
 
 #Enables customer to be able to buy more than one item
 quantity = input("How many coffees would you like?\n")
 
+#Calculates sales tax
+
+def percentage(part, whole):
+    percentage = 100 * float(part)/float(whole)
+    return str(percentage) + "%"
+
+tax = str(percentage(8, 100))
+
 #Calculates all inputs and gives your total price
-total = price * int(quantity) 
+coffee_total = price * int(quantity)
+
+tax_total = coffee_total * str(tax)
+
+total = str(coffee_total) 
 
 print("Thank you. Your total is: $" + str(total))
 
 print("Sounds good " + name + ", we'll have that out for you in just one moment\n\n\n\n")
 
 #Keeps program open so you can see the last line 
-end = input("Press any KEY to end")
+end = input("Press 'Enter' KEY to end")
