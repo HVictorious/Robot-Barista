@@ -1,6 +1,9 @@
 #Robot Barista
 #@Author:Hunter Victorious
 
+from tkinter.messagebox import YES
+
+
 print("Hello, welcome to the Cafe!!!!!!")
 
 name = input("What is your name?\n")
@@ -8,7 +11,7 @@ name = input("What is your name?\n")
 #Verifies that you are not Evil Ben 
 if name == "Ben":
     evil_status = input("Are you Evil?\n")
-    if evil_status == "Yes" or evil_status == "yes":
+    if evil_status.lower() == "yes":
         print("You're not welcome here Evil Ben!! Get out!!")
         exit()
     else:
@@ -67,18 +70,14 @@ quantity = input("How many coffees would you like?\n")
 
 #Calculates sales tax
 
-def percentage(part, whole):
-    percentage = 100 * float(part)/float(whole)
-    return str(percentage) + "%"
-
-tax = str(percentage(8, 100))
+tax = .08
 
 #Calculates all inputs and gives your total price
 coffee_total = price * int(quantity)
 
-tax_total = coffee_total * str(tax)
+tax_total = coffee_total * tax
 
-total = str(coffee_total) 
+total = coffee_total + tax_total
 
 print("Thank you. Your total is: $" + str(total))
 
