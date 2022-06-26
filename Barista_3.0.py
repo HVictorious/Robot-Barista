@@ -15,13 +15,15 @@ if name == "Ben":
     else:
         print("Oh, so you're one of those good Bens. Come on in!!")
 else:
-    print("Hello " + name + ", thank you so much for coming in today.\n\n\n")
+    print("Hello " + name + ", thank you so much for coming in today.\n\n")
+import time
+time.sleep(2)
 
 #Input for different types of coffee
 menu_list = ["Black Coffee", "Espresso", "Latte", "Cappucino", "Frappuccino", "Dark Roast"]
 
 while True:
-    order = input(name + ",what would you like from our menu today? Here is what we are serving.\n" + ('\n'.join(map(str, menu_list))) + "\n")
+    order = input("What would you like from our menu today? Here is what we are serving.\n" + ('\n'.join(map(str, menu_list))) + "\n")
     try:
         if order in menu_list:
             break
@@ -47,7 +49,7 @@ elif order == "Dark Roast":
 size_list = ["Small", "Medium", "Large"]
 
 while True:
-    size = input(name + ",what would you like from our menu today? Here is what we are serving.\n" + ('\n'.join(map(str, size_list))) + "\n")
+    size = input("\n\n" + name + ",What size would you like\n" + ('\n'.join(map(str, size_list))) + "\n")
     try:
         if size in size_list:
             break
@@ -80,17 +82,17 @@ total = coffee_total + tax_total
 print("Thank you. Your total is: $" + str(total))
 
 #Function to pay cash or card 
-payment = input("Will you be paying with Cash or Card today.\n")
+payment = input("\n\n" + "Will you be paying with Cash or Card today.\n")
 
 if payment == "Card":
     input("Please insert/swipe/tap card\n")
     print("Processing...........\n")
     import time
     time.sleep(6)
-    print("Approved")
-    input("Please Remove Card\n\n\n\n")
+    print("Approved\n\n")
+    input("Please Remove Card\n\n\n")
 if payment == "Cash":
-    input("Please insert your cash into the bill accepter below and your change into the coin slot\n\n\n\n")
+    input("Please insert your cash into the bill accepter below and your change into the coin slot!\n\n\n\n")
 
 print("Thank you for coming to The Cafe " + name + ", we'll have that out for you in just one moment\n\n\n\n")
 
