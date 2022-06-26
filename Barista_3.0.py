@@ -1,8 +1,6 @@
 #Robot Barista
 #@Author:Hunter Victorious
 
-from tkinter.messagebox import YES
-
 
 print("Hello, welcome to the Cafe!!!!!!")
 
@@ -81,7 +79,20 @@ total = coffee_total + tax_total
 
 print("Thank you. Your total is: $" + str(total))
 
-print("Sounds good " + name + ", we'll have that out for you in just one moment\n\n\n\n")
+#Function to pay cash or card 
+payment = input("Will you be paying with Cash or Card today.\n")
+
+if payment == "Card":
+    input("Please insert/swipe/tap card\n")
+    print("Processing...........\n")
+    import time
+    time.sleep(6)
+    print("Approved")
+    input("Please Remove Card\n\n\n\n")
+if payment == "Cash":
+    input("Please insert your cash into the bill accepter below and your change into the coin slot\n\n\n\n")
+
+print("Thank you for coming to The Cafe " + name + ", we'll have that out for you in just one moment\n\n\n\n")
 
 #Keeps program open so you can see the last line 
 end = input("Press 'Enter' KEY to end")
