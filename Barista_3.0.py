@@ -1,9 +1,6 @@
 #Robot Barista
 #@Author:Hunter Victorious
 
-from asyncio.windows_events import NULL
-from decimal import ROUND_UP
-
 
 def  main_loop():
 
@@ -30,28 +27,35 @@ def  main_loop():
     menu_list = ["Black Coffee", "Espresso", "Latte", "Cappucino", "Frappuccino", "Dark Roast"]
 
     while True:
+        valid_order = 0
         order = input("What would you like from our menu today? Here is what we are serving.\n" + ('\n'.join(map(str, menu_list))) + "\n")
+        order = order.lower()
         try:
-            if order in menu_list:
-                break
-            else:
-                print("Please Try again!")
+            for item in menu_list:
+                if order == item.lower():
+                    valid_order = 1
+                    if order == "frappuccino":
+                        price_coffee = 5
+                    elif order == "black coffee":
+                        price_coffee = 2
+                    elif order == "espresso":
+                        price_coffee = 6
+                    elif order == "cuppucino":
+                        price_coffee = 4
+                    elif order == "latte":
+                        price_coffee = 7
+                    elif order == "dark roast":
+                        price_coffee = 3 
         except:
             continue
+        if valid_order == 1:
+            break
+        else:
+            print(str(order) + " is not available, Try again")
 
-    if order == "Frappuccino":
-        price_coffee = 5
-    elif order == "Black Coffee":
-        price_coffee = 2
-    elif order == "Espresso":
-        price_coffee = 6
-    elif order == "Cuppucino":
-        price_coffee = 4
-    elif order == "Latte":
-        price_coffee = 7
-    elif order == "Dark Roast":
-        price_coffee = 3
-
+            
+        
+        
     #Input for different price and cost difference by price
     size_list = ["Small", "Medium", "Large"]
 
