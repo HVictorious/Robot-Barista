@@ -89,8 +89,6 @@ def  main_loop():
     print("Thank you. Your total is: $" + str(total))
 
     #Calculates discount codes 
-
-    
     discount_code = ["MILITARY10", "JuIcEr30"] 
         
     while True: 
@@ -110,8 +108,6 @@ def  main_loop():
         
         print("Your new total is $" + str(round(total, 2)) + ".\n")
         
-    
-    
     #Function to pay cash or card 
     payment = input("\n\n" + "Will you be paying with Cash or Card today.\n")
 
