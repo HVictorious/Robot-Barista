@@ -60,21 +60,27 @@ def  main_loop():
     size_list = ["Small", "Medium", "Large"]
 
     while True:
+        valid_size = 0
         size = input("\n\n" + name + ",What size would you like\n" + ('\n'.join(map(str, size_list))) + "\n")
+        size = size.lower()
         try:
-            if size in size_list:
-                break
-            else:
-                print("Please Try again!")
+            for item in size_list:
+                if size == item.lower():
+                    valid_size = 1
+                    if size == "small":  
+                        price = price_coffee + int(1)
+                    elif size == "medium":
+                        price = price_coffee + int(2)
+                    elif size == "large": 
+                        price = price_coffee + int(3)
         except:
             continue
-
-    if size == "Small":  
-        price = price_coffee + int(1)
-    elif size == "Medium":
-        price = price_coffee + int(2)
-    elif size == "Large": 
-        price = price_coffee + int(3)
+        if valid_size == 1:
+            break
+        else:
+            print(str(size) + " is not available, Try again")
+       
+  
 
     #Enables customer to be able to buy more than one item
     quantity = input("How many coffees would you like?\n")
@@ -108,7 +114,7 @@ def  main_loop():
             discount_savings = total * 0.30 
             total = total - discount_savings
             
-        print("You saved $" + str(discount_savings))
+        print("You saved $" + str(round(discount_savings, 2)))
         
         print("Your new total is $" + str(round(total, 2)) + ".\n")
         
