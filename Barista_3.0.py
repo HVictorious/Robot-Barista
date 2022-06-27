@@ -1,6 +1,10 @@
 #Robot Barista
 #@Author:Hunter Victorious
 
+from asyncio.windows_events import NULL
+from decimal import ROUND_UP
+
+
 def  main_loop():
 
 
@@ -73,7 +77,7 @@ def  main_loop():
 
     #Calculates sales tax
 
-    tax = .08
+    tax = 0.08
 
     #Calculates all inputs and gives your total price
     coffee_total = price * int(quantity)
@@ -84,6 +88,30 @@ def  main_loop():
 
     print("Thank you. Your total is: $" + str(total))
 
+    #Calculates discount codes 
+
+    
+    discount_code = ["MILITARY10", "JuIcEr30"] 
+        
+    while True: 
+        discount_entered = input("Do you have any discount codes you'd like to enter\n")
+        discount_savings = 0
+        if discount_entered.lower() == "no":
+            break  
+        elif discount_entered == discount_code[0]:
+            discount_savings = total * 0.10 
+            total = total - discount_savings
+            
+        elif discount_entered == discount_code[1]:
+            discount_savings = total * 0.30 
+            total = total - discount_savings
+            
+        print("You saved $" + str(discount_savings))
+        
+        print("Your new total is $" + str(round(total, 2)) + ".\n")
+        
+    
+    
     #Function to pay cash or card 
     payment = input("\n\n" + "Will you be paying with Cash or Card today.\n")
 
